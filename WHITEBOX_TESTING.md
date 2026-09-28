@@ -35,11 +35,15 @@ should be rejected.
 "Covers" = which decision(s) this case exercises, and whether it takes the
 True or False branch, e.g. `D3-True`.
 
-| ID | Type | priority | hours | Covers | Expected | Actual (per code) | Bug? |
-|---|---|---|---|---|---|---|---|
-| TC-1 | Positive | 3 | 5 | D1F,D2F,D3F,D4F,D5F | Valid | Valid | No |
-| TC-2 | Negative | None | 5 | D1T | Reject: missing field | Reject: missing field | No |
-| TC-3 | | | | | | | |
+| **ID** | **Type** | **priority** | **hours** | **Covers** | **Expected** | **Actual (per code)** | **Bug?** |
+|---|---|---:|---:|---|---|---|---|
+| TC-1 | Positive | 3 | 5 | D1-F, D2-F, D3-F, D4-F, D5-F | Valid | Valid | No |
+| TC-2 | Negative | None | 5 | D1-T | Reject: missing field | Reject: missing field | No |
+| TC-3 | Negative | 3.5 | 5 | D1-F, D2-T | Reject: priority must be a whole number | Reject: priority must be a whole number | No |
+| TC-4 | Negative | 0 | 5 | D1-F, D2-F, D3-T | Reject: priority must be between 1 and 5 | Reject: priority must be between 1 and 5 | No |
+| TC-5 | Negative | 3 | 0 | D1-F, D2-F, D3-F, D4-T | Reject: estimated hours must be positive | Reject: estimated hours must be positive | No |
+| TC-6 | Negative | 4 | 21 | D1-F, D2-F, D3-F, D4-F, D5-T | Reject: high priority tasks cannot exceed 20 hours | Reject: high priority tasks cannot exceed 20 hours | No |
+| TC-7 | Negative | 6 | 5 | D1-F, D2-F, D3-F, D4-F, D5-F | Reject: priority must be between 1 and 5 | Valid | Yes |
 
 Add rows until every decision point has appeared as both True and False at
 least once. Check off the table in section 1 as you go.
